@@ -6,7 +6,13 @@ function sortAccountsByLastName(accounts) {
   return accounts.sort((accountA,AccountB)=>
   accountA.name.last > AccountB.name.last ? 1: -1);
 }
-
+//Below is the helper function before the main function.
+function filterBorrowedBooksByAccount(account, books) {
+  return books.filter(book => {
+    const borrows = book.borrows;
+    return borrows.some(borrow => borrow.id === account.id);
+  });
+}
 function getTotalNumberOfBorrows(account, books) {
   let totalBooksBorrowed=0;
   for(let i=0; i < books.length; i++){
