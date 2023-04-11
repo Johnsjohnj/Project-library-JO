@@ -8,6 +8,7 @@ function sortAccountsByLastName(accounts) {
 }
 
 }
+//Added a helper function below,just before the main one.
 function filterBooksById(books, accountId) {
   return (possessedBooks = books.filter((book) => {
     const { borrows } = book;
