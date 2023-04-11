@@ -8,14 +8,7 @@ function sortAccountsByLastName(accounts) {
 }
 
 }
-//Added a helper function below,just before the main one.
-function filterBooksById(books, accountId) {
-  return (possessedBooks = books.filter((book) => {
-    const { borrows } = book;
-    const [first, ...rest] = borrows;
-    return first.id === accountId && !first.returned;
-  }));
-}
+
 function getTotalNumberOfBorrows(account, books) {
   const { id } = account;
   let sum = 0;
@@ -26,6 +19,13 @@ function getTotalNumberOfBorrows(account, books) {
   return sum;
 }
 
+function filterBooksById(books, accountId) {
+  return (possessedBooks = books.filter((book) => {
+    const { borrows } = book;
+    const [first, ...rest] = borrows;
+    return first.id === accountId && !first.returned;
+  }));
+}
 
 function getBooksPossessedByAccount(account, books, authors){
 const possessedBooks=[];
